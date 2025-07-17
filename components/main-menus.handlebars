@@ -1,0 +1,117 @@
+<div class="main-wrap">
+    {{#if store.navigations.main_menu}}
+    <ul class="main-menu">
+        {{#iterate store.navigations.main_menu as="menu"}}
+
+        {{#switch menu.name}}
+
+        {{#case "Shop"}}
+        <li class="menu-link">
+            <a href="{{menu.url}}" class="link-title">
+                <span class="sp-link-title">{{menu.name}}</span>
+                <span class="menu-arrow"><i class="feather-chevron-down"></i></span>
+            </a>
+            <div class="menu-dropdown menu-banner collapse">
+                <ul class="ul container p-0">
+                    {{#widgets section.widgets}}
+                    <li class="menubanner-li">
+                        <div class="menubanner-img banner-hover">
+                            <a href="{{widget.settings.link}}" class="collection-img banner-img">
+                                <img src="{{widget.settings.image}}" class="img-fluid" alt="menubanner-1">
+                            </a>
+                            <a href="{{widget.settings.link}}" class="collection-title">
+                                <span>{{widget.settings.title}}</span>
+                            </a>
+                        </div>
+                    </li>
+                    {{/widgets}}
+                </ul>
+            </div>
+        </li>
+        {{/case}}
+
+        {{#case "Categories"}}
+        <li class="menu-link">
+            <a href="{{menu.url}}" class="link-title">
+                <span class="sp-link-title">{{menu.name}}</span>
+                {{#if menu.menus}}
+                <span class="menu-arrow"><i class="feather-chevron-down"></i></span>
+                {{/if}}
+            </a>
+            {{#if menu.menus}}
+            <div class="menu-dropdown menu-mega collapse">
+                <ul class="ul container p-0">
+                    {{#iterate menu.menus as="category"}}
+                    <li class="menumega-li">
+                        <a href="{{category.url}}" class="menumega-title">
+                            <span class="sp-link-title">{{category.name}}</span>
+                        </a>
+                        {{#if category.menus}}
+                        <div class="menumegasup-dropdown collapse">
+                            <ul class="menumegasup-ul">
+                                {{#iterate category.menus as="submenu"}}
+                                <li class="menumegasup-li">
+                                    <a href="{{submenu.url}}" class="menumegasup-title">
+                                        <span class="sp-link-title">{{submenu.name}}</span>
+                                    </a>
+                                </li>
+                                {{/iterate}}
+                            </ul>
+                        </div>
+                        {{/if}}
+                    </li>
+                    {{/iterate}}
+                </ul>
+            </div>
+            {{/if}}
+        </li>
+        {{/case}}
+
+        {{#default}}
+        {{#if menu.menus}}
+        <li class="menu-link">
+            <a href="{{menu.url}}" class="link-title">
+                <span class="sp-link-title">{{menu.name}}</span>
+                <span class="menu-arrow"><i class="feather-chevron-down"></i></span>
+            </a>
+            <div class="menu-dropdown menu-sub collapse">
+                <ul class="ul">
+                    {{#iterate menu.menus as="submenu"}}
+                    <li class="menusub-li">
+                        <a href="{{submenu.url}}" class="menusub-title">
+                            <span class="sp-link-title">{{submenu.name}}</span>
+                            {{#if submenu.menus}}
+                            <span class="menu-arrow"><i class="feather-chevron-right"></i></span>
+                            {{/if}}
+                        </a>
+                        {{#if submenu.menus}}
+                        <div class="menusup-dropdown collapse">
+                            <ul class="menusup-ul">
+                                {{#iterate submenu.menus}}
+                                <li class="menusup-li">
+                                    <a href="{{current.url}}" class="menusup-title">
+                                        <span class="sp-link-title">{{current.name}}</span>
+                                    </a>
+                                </li>
+                                {{/iterate}}
+                            </ul>
+                        </div>
+                        {{/if}}
+                    </li>
+                    {{/iterate}}
+                </ul>
+            </div>
+        </li>
+        {{else}}
+        <li class="menu-link">
+            <a href="{{menu.url}}" class="link-title">
+                <span class="sp-link-title">{{menu.name}}</span>
+            </a>
+        </li>
+        {{/if}}
+        {{/default}}
+        {{/switch}}
+        {{/iterate}}
+    </ul>
+    {{/if}}
+</div>

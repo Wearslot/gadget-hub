@@ -1,0 +1,126 @@
+{
+    "layout": "main",
+    "sections": {
+        "hero": {
+            "type": "home-hero",
+            "widgets": {
+                "slide_1": {
+                    "type": "slide",
+                    "settings": {
+                        "title": "It is all about the sound",
+                        "sub_title": "up to 30% off",
+                        "image_desktop": "https://res.cloudinary.com/dahdlotat/image/upload/v1750058962/public/gadget-hub/fynxplx1muniol0lamn4.jpg",
+                        "image_mobile": "https://res.cloudinary.com/dahdlotat/image/upload/v1750058961/public/gadget-hub/avsb39wcdz2hwqn1wkxz.jpg",
+                        "button_text": "Shop Now",
+                        "button_link": "/collections/accessories"
+                    }
+                },
+                "slide_2": {
+                    "type": "slide",
+                    "settings": {
+                        "title": "The future in your hand",
+                        "sub_title": "up to 20% off",
+                        "image_desktop": "https://res.cloudinary.com/dahdlotat/image/upload/v1750058962/public/gadget-hub/zc5l155wnkhprwbivdfb.jpg",
+                        "image_mobile": "https://res.cloudinary.com/dahdlotat/image/upload/v1750058962/public/gadget-hub/gbdd4eiumxkmwa3ieoxz.jpg",
+                        "button_text": "Shop Now",
+                        "button_link": "/collections/phones"
+                    }
+                },
+                "slide_3": {
+                    "type": "slide",
+                    "settings": {
+                        "title": "Experience every beat",
+                        "sub_title": "up to 15% off",
+                        "image_desktop": "https://res.cloudinary.com/dahdlotat/image/upload/v1750058962/public/gadget-hub/p19eiifaxjzrf8geugxf.jpg",
+                        "image_mobile": "https://res.cloudinary.com/dahdlotat/image/upload/v1750058962/public/gadget-hub/efm208rk90fbo1qstccn.jpg",
+                        "button_text": "Shop Now",
+                        "button_link": "/collections/tv-and-speakers"
+                    }
+                }
+            }
+        },
+        "featured-products": {
+            "type": "featured-products",
+            "settings": {
+                "show": true,
+                "padding_top": 10,
+                "title": "Best selling products",
+                "subtitle": "CUSTOMER FAVORITES",
+                "description": ""
+            }
+        },
+        "featured-collections": {
+            "type": "featured-collections",
+            "settings": {
+                "show": true,
+                "title": "Simple elegance",
+                "subtitle": "SUMMER COLLECTION",
+                "description": "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta."
+            }
+        },
+        "featured-categories": {
+            "type": "featured-categories",
+            "settings": {
+                "show": true,
+                "title": "Simple elegance",
+                "subtitle": "SUMMER COLLECTION",
+                "description": "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta."
+            }
+        },
+        "promotion-and-offers": {
+            "type": "promotion-and-offers",
+            "settings": {
+                "show": true
+            }
+        },
+        "latest-blog-posts": {
+            "type": "latest-blog-posts",
+            "settings": {
+                "show": true,
+                "title": "Simple elegance",
+                "subtitle": "SUMMER COLLECTION",
+                "description": "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta."
+            }
+        },
+        "testimonials": {
+            "type": "testimonials",
+            "widgets": {
+                "brand_slider": {
+                    "type": "brand-slider",
+                    "settings": {
+                        "show": true
+                    }
+                }
+            },
+            "settings": {
+                "show": true,
+                "title": "Simple elegance",
+                "subtitle": "SUMMER COLLECTION",
+                "description": "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta."
+            }
+        },
+        "services-area": {
+            "type": "services-area",
+            "settings": {
+                "show": true
+            }
+        }
+    },
+    "order": [
+        "hero",
+        "featured-categories",
+        "featured-collections",
+        "featured-products",
+        "testimonials",
+        "promotion-and-offers",
+        "latest-blog-posts",
+        "services-area"
+    ],
+    "data": {
+        "featured_products": true,
+        "featured_collections": true,
+        "collections": {
+            "limit": 4
+        }
+    }
+}

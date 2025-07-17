@@ -1,0 +1,11 @@
+{
+    "layout": "main",
+    "sections": {
+        "address_detail": {
+            "type": "customer/main-address-detail"
+        }
+    },
+    "order": [
+        "address_detail"
+    ]
+}

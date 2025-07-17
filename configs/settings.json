@@ -1,0 +1,18 @@
+{
+    "preset": {
+        "newsletter": {
+            "image": {
+                "type": "image",
+                "value": "https://res.cloudinary.com/dp7quxpsq/image/upload/v1748942621/static/themes/gadgethub/pc8rn25exsuum4m9dlqa.jpg"
+            },
+            "title": {
+                "type": "text",
+                "value": "15% off"
+            },
+            "description": {
+                "type": "text",
+                "value": "On your first purchase"
+            } 
+        }
+    }
+}

@@ -1,0 +1,76 @@
+<section style="padding: 100px 0 100px 0;"
+    class="elementor-section elementor-top-section elementor-element elementor-element-598cad6 elementor-section-stretched qodef-elementor-content-grid elementor-section-boxed elementor-section-height-default elementor-section-height-default">
+    <div class="elementor-container elementor-column-gap-default">
+        <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-2aa9e58">
+            <div class="elementor-widget-wrap elementor-element-populated">
+                <div
+                    class="elementor-element elementor-element-67d8059 elementor-widget elementor-widget-esmee_core_section_title">
+                    <div class="elementor-widget-container">
+                        <div class="qodef-shortcode qodef-m  qodef-section-title qodef-alignment--left ">
+                            <h6 class="qodef-m-subtitle">{{section.settings.heading.default}}</h6>
+                            <h2 class="qodef-m-title">{{section.settings.sub_heading.default}}</h2>
+                            <p class="qodef-m-text">{{section.settings.description.default}}</p>
+                        </div>
+                    </div>
+                </div>
+                <section
+                    class="elementor-section elementor-inner-section elementor-element elementor-element-e88267c elementor-section-boxed elementor-section-height-default elementor-section-height-default qodef-elementor-content-no">
+                    <div class="elementor-container elementor-column-gap-default">
+                        <div
+                            class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-bb22289">
+                            <div class="elementor-widget-wrap elementor-element-populated">
+                                <div
+                                    class="elementor-element elementor-element-84ac230 elementor-widget elementor-widget-text-editor">
+                                    <div class="elementor-widget-container">
+                                        <h4>Address</h4>
+                                    </div>
+                                </div>
+                                <div
+                                    class="elementor-element elementor-element-39601e6 elementor-widget elementor-widget-text-editor">
+                                    <div class="elementor-widget-container">
+                                        <p>
+                                            <a href="{{store.website}}">
+                                                {{store.address.street}},{{store.address.city}}, <br> {{store.address.state}},{{store.address.country}}
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="elementor-element elementor-element-452f05e elementor-widget elementor-widget-text-editor"
+                                    data-id="452f05e" data-element_type="widget" data-widget_type="text-editor.default">
+                                    <div class="elementor-widget-container">
+                                        <p>
+                                            <a href="tel:{{store.phone}}">{{store.phone}}</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="elementor-element elementor-element-6eb7c8d elementor-widget elementor-widget-text-editor"
+                                    data-id="6eb7c8d" data-element_type="widget" data-widget_type="text-editor.default">
+                                    <div class="elementor-widget-container">
+                                        <p><a href="mailto:{{store.email}}">
+                                                <span>{{store.email}}</span>
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-87ed8de"
+            data-id="87ed8de" data-element_type="column">
+            <div class="elementor-widget-wrap elementor-element-populated">
+                <div class="elementor-element elementor-element-1d3a93a elementor-widget elementor-widget-wp-widget-esmee_core_contact_form_7"
+                    data-id="1d3a93a" data-element_type="widget"
+                    data-widget_type="wp-widget-esmee_core_contact_form_7.default">
+                    <div class="elementor-widget-container">
+                        {{{render "contact-form"}}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,25 @@
+<!-- main-slider start -->
+<section class="slider-content">
+    <div class="home-slider owl-carousel owl-theme" id="home-slider">
+        {{#widgets section.widgets}}
+        <div class="item">
+            <div class="slider-image">
+                <div class="slide-img">
+                    <img src="{{widget.settings.image_desktop}}" class="img-fluid desk-img" alt="slider-1">
+                    <img src="{{widget.settings.image_mobile}}" class="img-fluid resp-img" alt="mobile-slider1">
+                </div>
+                <div class="container slider-text-info">
+                    <div class="slider-text-content">
+                        <span class="sub-title">{{widget.settings.sub_title}}</span>
+                        <h2><span>{{widget.settings.title}}</span></h2>
+                        <a href="{{widget.settings.button_link}}" class="btn-block">
+                            <span class="shopnow">{{widget.settings.button_text}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/widgets}}
+    </div>
+</section>
+<!-- main-slider end -->

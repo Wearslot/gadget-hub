@@ -1,0 +1,149 @@
+<!-- mobile-menu start -->
+<div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-contents">
+        <div class="menu-close">
+            <button class="menu-close-btn">
+                <span class="menu-close-icon"><i class="feather-x"></i></span>
+            </button>
+        </div>
+        <div class="header-contact">
+            <div class="mobilemenu-content">
+                <div class="main-wrap">
+                    {{#if store.navigations.main_menu}}
+
+                    <ul class="main-menu">
+                        {{#iterate store.navigations.main_menu as="menu"}}
+
+                        {{#switch menu.name}}
+
+                        {{#case "Shop"}}
+                        <li class="menu-link">
+                            <a href="#{{menu.name}}" class="link-title" data-bs-toggle="collapse" aria-expanded="false">
+                                <span class="sp-link-title">Shop</span>
+                                <span class="menu-arrow"><i class="feather-plus"></i></span>
+                            </a>
+                            <div class="menu-dropdown menu-banner collapse" id="{{menu.name}}">
+                                <ul class="ul container p-0">
+                                    {{#widgets section.widgets}}
+                                    <li class="menubanner-li">
+                                        <div class="menubanner-img banner-hover">
+                                            <a href="{{widget.settings.link}}" class="collection-img banner-img">
+                                                <img src="{{widget.settings.image}}" class="img-fluid"
+                                                    alt="menubanner-1">
+                                            </a>
+                                            <a href="{{widget.settings.link}}" class="collection-title">
+                                                <span>{{widget.settings.title}}</span>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    {{/widgets}}
+                                </ul>
+                            </div>
+                        </li>
+                        {{/case}}
+                        {{#case "Categories"}}
+                        <li class="menu-link">
+                            <a href="#menu-collection" class="link-title" data-bs-toggle="collapse"
+                                aria-expanded="false">
+                                <span class="sp-link-title">{{menu.name}}</span>
+                                {{#if menu.menus}}
+                                <span class="menu-arrow"><i class="feather-plus"></i></span>
+                                {{/if}}
+                            </a>
+                            {{#if menu.menus}}
+                            <div class="menu-dropdown menu-mega collapse" id="menu-collection">
+                                <ul class="ul container p-0">
+                                    {{#iterate menu.menus as="category"}}
+                                    <li class="menumega-li shop-li">
+                                        <div class="shop-title">
+                                            <a href="{{category.url}}">
+                                                <span class="sp-link-title">{{category.name}}</span>
+                                            </a>
+                                            {{#if category.menus}}
+                                            {{#iterate category.menus as="submenu"}}
+                                            <a href="{{submenu.url}}">
+                                                <span class="sp-link-title">{{submenu.name}}</span>
+                                            </a>
+                                            {{/iterate}}
+                                            {{/if}}
+                                        </div>
+                                    </li>
+                                    {{/iterate}}
+                                </ul>
+                            </div>
+                            {{/if}}
+                        </li>
+                        {{/case}}
+                        {{#default}}
+                        {{#if menu.menus}}
+                        <li class="menu-link">
+                            <a href="#{{menu.name}}" class="link-title" data-bs-toggle="collapse" aria-expanded="false">
+                                <span class="sp-link-title">{{menu.name}}</span>
+                                <span class="menu-arrow"><i class="feather-plus"></i></span>
+                            </a>
+                            <div class="menu-dropdown menu-sub collapse" id="{{menu.name}}">
+                                <ul class="ul">
+                                    {{#iterate menu.menus as="submenu"}}
+                                    <li class="menusub-li">
+                                        <a href="{{#if submenu.menus}} #{{submenu.name}} {{else}} {{submenu.url}} {{/if}}"
+                                            class="menusub-title" data-bs-toggle="collapse" aria-expanded="false">
+                                            <span class="sp-link-title">{{submenu.name}}</span>
+                                            {{#if submenu.menus}}
+                                            <span class="menu-arrow"><i class="feather-plus"></i></span>
+                                            {{/if}}
+                                        </a>
+                                        {{#if submenu.menus}}
+                                        <div class="menusup-dropdown collapse" id="{{submenu.name}}">
+                                            <ul class="menusup-ul">
+                                                {{#iterate submenu.menus}}
+                                                <li class="menusup-li">
+                                                    <a href="{{current.url}}" class="menusup-title">
+                                                        <span class="sp-link-title">{{current.name}}</span>
+                                                    </a>
+                                                </li>
+                                                {{/iterate}}
+                                            </ul>
+                                        </div>
+                                        {{/if}}
+                                    </li>
+                                    {{/iterate}}
+                                </ul>
+                            </div>
+                        </li>
+                        {{else}}
+                        <li class="menu-link">
+                            <a href="{{menu.url}}" class="link-title">
+                                <span class="sp-link-title">{{menu.name}}</span>
+                            </a>
+                        </li>
+                        {{/if}}
+                        {{/default}}
+                        {{/switch}}
+                        {{/iterate}}
+
+                        {{#if section.settings.show_store_phone}}
+                        <li class="menu-link">
+                            <div class="contact-num">
+                                <div class="contact-wrap service-line">
+                                    <span class="contact-details"><i class="feather-headphones"></i></span>
+                                    <a href="tel:{{store.phone}}">{{store.phone}}</a>
+                                </div>
+                            </div>
+                        </li>
+                        {{/if}}
+                        {{#if section.settings.show_mega_sale}}
+                        <li class="menu-link">
+                            <div class="contact-wrap price-tag">
+                                <span class="contact-details"><i class="feather-tag"></i></span>
+                                <a href="{{section.settings.mega_sale_link}}">{{section.settings.mega_sale_title}}</a>
+                            </div>
+                        </li>
+                        {{/if}}
+                    </ul>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- mobile-menu end -->

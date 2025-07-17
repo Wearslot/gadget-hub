@@ -1,0 +1,48 @@
+{
+    "sections": {
+        "announcement": {
+            "type": "announcement",
+            "settings": {
+                "show": true,
+                "text": "<p class=\"notification-free\"><span class=\"top-c\">Free delivery</span> on orders over $100 discount</p>"
+            }
+        },
+        "header": {
+            "type": "main-header",
+            "widgets": {
+                "special_collection_1": {
+                    "settings": {
+                        "image": "https://res.cloudinary.com/dp7quxpsq/image/upload/v1748951785/static/themes/gadgethub/wzgbmoedxosn03tgyhk6.jpg",
+                        "title": "New Collection",
+                        "link": "/collections/mobile"
+                    }
+                },
+                "special_collection_2": {
+                    "settings": {
+                        "image": "https://res.cloudinary.com/dp7quxpsq/image/upload/v1748951784/static/themes/gadgethub/nxdcyzia40dbpxzopwox.jpg",
+                        "title": "Best Collection",
+                        "link": "/collections/speakers"
+                    }
+                },
+                "special_collection_3": {
+                    "settings": {
+                        "image": "https://res.cloudinary.com/dp7quxpsq/image/upload/v1748951784/static/themes/gadgethub/xbfsnwhyghgbbqkctrad.jpg",
+                        "title": "Sale Collection",
+                        "link": "/collections/sales"
+                    }
+                }
+            },
+            "settings": {
+                "show": true,
+                "show_store_phone": true,
+                "mega_sale_link": "/collections/sales",
+                "show_mega_sale": true,
+                "mega_sale_title": "Mega Sale"
+            }
+        }
+    },
+    "order": [
+        "announcement",
+        "header"
+    ]
+}

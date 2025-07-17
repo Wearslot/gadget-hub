@@ -1,0 +1,15 @@
+{
+    "layout": "main",
+    "sections": {
+        "catalogs": {
+            "type": "shop/four-columns",
+            "settings": {}
+        }
+    },
+    "order": [
+        "catalogs"
+    ],
+    "data": {
+        "collections": true
+    }
+}
