@@ -1,0 +1,90 @@
+<!-- que-modal stat -->
+<div
+  class="modal fade que-modal"
+  id="que-modal"
+  aria-modal="true"
+  tabindex="-1"
+  role="dialog"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button
+          type="button"
+          class="pop-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        >
+          <i class="feather-x"></i>
+        </button>
+        <div class="product-form-list">
+          <div class="single-product-wrap">
+            <div class="product-image">
+              <a class="pro-img" href="collection.html">
+                <img
+                  class="img-fluid img1 resp-img1"
+                  src="image/home1/product/product-1.jpg"
+                  alt="p-1"
+                />
+                <img
+                  class="img-fluid img2 resp-img2"
+                  src="image/home1/product/product-2.jpg"
+                  alt="p-2"
+                />
+              </a>
+            </div>
+            <div class="product-content">
+              <div class="pro-title-price">
+                <h6>
+                  <a href="product-template.html">Verse earphones</a>
+                </h6>
+                <div class="product-price">
+                  <div class="price-box">
+                    <span class="new-price">{{product_price product}}</span>
+                    <span class="old-price">$25.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ask-form">
+          <h6>Ask a question</h6>
+          <form method="post" class="contact-form">
+            <input type="hidden" name="contact[product url]" value="" />
+            <div class="form-grp">
+              <input
+                type="text"
+                name="contact[name]"
+                required=""
+                placeholder="Your name*"
+              />
+              <input
+                type="text"
+                name="contact[phone]"
+                placeholder="Your phone number"
+              />
+              <input
+                type="email"
+                name="contact[email]"
+                required=""
+                placeholder="Your email*"
+              />
+              <textarea
+                name="contact[question]"
+                rows="4"
+                required=""
+                placeholder="Your message*"
+              ></textarea>
+              <p>* Required fields</p>
+              <button type="submit" class="btn-style2">
+                Submit Now
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- que-modal end -->

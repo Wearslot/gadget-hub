@@ -1,0 +1,7 @@
+{
+    "data": {
+        "payment_methods": true,
+        "collections": true,
+        "products": true 
+    }
+}

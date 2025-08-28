@@ -1,12 +1,12 @@
 {
     "layout": "main",
     "sections": {
-        "main-cart": {
-            "type": "cart-page",
+        "refund-policy": {
+            "type": "refund-policy",
             "settings": {}
         }
     },
     "order": [
-        "main-cart"
+        "refund-policy"
     ]
 }

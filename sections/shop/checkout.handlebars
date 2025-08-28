@@ -1,0 +1,160 @@
+<!-- checkout-area start -->
+<section class="section-pt">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="checkout-area">
+          <div class="billing-area">
+            <form action="{{store.website}}/checkout" method="post" enctype="multipart/form-data">
+              <h2 data-animate="animate__fadeIn">Billing details</h2>
+              <div class="billing-form">
+                <ul class="input-2">
+                  <li class="billing-li" data-animate="animate__fadeIn">
+                    <label>First name<span>*</span></label>
+                    <input type="text" name="firstname" placeholder="First name" value="{{cart.shipping_address.first_name}}">
+                    {{#if errors.firstname}}<span>{{errors.firstname}}</span>{{/if}}
+                  </li>
+                  <li class="billing-li" data-animate="animate__fadeIn">
+                    <label>Last name<span>*</span></label>
+                    <input type="text" name="lastname" placeholder="Last name" value="{{cart.shipping_address.last_name}}">
+                    {{#if errors.lastname}}<span>{{errors.lastname}}</span>{{/if}}
+                  </li>
+                </ul>
+
+                <ul class="billing-ul">
+                  <li class="billing-li" data-animate="animate__fadeIn">
+                    <label>Company name (Optional)</label>
+                    <input type="text" name="company" placeholder="Company name" value="{{cart.shipping_address.company}}">
+                  </li>
+                  <li class="billing-li" data-animate="animate__fadeIn">
+                    <label>Country<span>*</span></label>
+                    {{{country_select_field 'id="country" class="form-control"' selected=cart.shipping_address.country}}}
+                    {{#if errors.country}}<span>{{errors.country}}</span>{{/if}}
+                  </li>
+                  <li class="billing-li" data-animate="animate__fadeIn">
+                    <label>Street address<span>*</span></label>
+                    <input type="text" name="address_line_1" placeholder="Street address" value="{{cart.shipping_address.address1}}">
+                    {{#if errors.address_line_1}}<span>{{errors.address_line_1}}</span>{{/if}}
+                  </li>
+                  <li class="billing-li" data-animate="animate__fadeIn">
+                    <label>Apartment, suite, unit etc. (Optional)</label>
+                    <input type="text" name="address_line_2" value="{{cart.shipping_address.address2}}">
+                  </li>
+                  <li class="billing-li" data-animate="animate__fadeIn">
+                    <label>Town / City<span>*</span></label>
+                    <input type="text" name="city" value="{{cart.shipping_address.city}}">
+                    {{#if errors.city}}<span>{{errors.city}}</span>{{/if}}
+                  </li>
+                  <li class="billing-li" data-animate="animate__fadeIn">
+                    <label>State / Province<span>*</span></label>
+                    {{{state_select_field 'id="state" class="form-control address-field state-select"' selected=cart.shipping_address.state}}}
+                    {{#if errors.state}}<span>{{errors.state}}</span>{{/if}}
+                  </li>
+                  <li class="billing-li" data-animate="animate__fadeIn">
+                    <label>Postcode / Zip<span>*</span></label>
+                    <input type="text" name="postcode" value="{{cart.shipping_address.zip}}">
+                    {{#if errors.postcode}}<span>{{errors.postcode}}</span>{{/if}}
+                  </li>
+                </ul>
+
+                <ul class="input-2">
+                  <li class="billing-li" data-animate="animate__fadeIn">
+                    <label>Email address<span>*</span></label>
+                    <input type="text" name="email" placeholder="Email address" value="{{cart.email}}">
+                    {{#if errors.email}}<span>{{errors.email}}</span>{{/if}}
+                  </li>
+                  <li class="billing-li" data-animate="animate__fadeIn">
+                    <label>Phone number<span>*</span></label>
+                    <input type="text" name="phone" placeholder="Phone number" value="{{cart.shipping_address.phone}}">
+                    {{#if errors.phone}}<span>{{errors.phone}}</span>{{/if}}
+                  </li>
+                </ul>
+              </div>
+
+              <div class="billing-details">
+                <h2 data-animate="animate__fadeIn">Shipping details</h2>
+                <ul class="shipping-form pro-submit">
+                  <li class="check-box label-info" data-animate="animate__fadeIn">
+                    <label class="box-area">
+                      <span class="text">Ship to a different address?</span>
+                      <input type="checkbox" class="cust-checkbox" name="ship_to_different_address">
+                      <span class="cust-check"></span>
+                    </label>
+                  </li>
+                  <li class="comment-area" data-animate="animate__fadeIn">
+                    <label>Order notes(Optional)</label>
+                    <textarea name="note" rows="5" cols="80" placeholder="Notes about your order">{{cart.note}}</textarea>
+                  </li>
+                </ul>
+              </div>
+          </div>
+
+          <div class="order-area">
+            <div class="check-pro">
+              <h2 data-animate="animate__fadeIn">In your cart ({{cart.item_count}})</h2>
+              <ul class="check-ul">
+                {{#iterate cart.items as="item"}}
+                <li data-animate="animate__fadeIn">
+                  <div class="check-pro-img">
+                    <a href="{{item.url}}">
+                      <img src="{{item.image}}" class="img-fluid" alt="{{item.title}}">
+                    </a>
+                  </div>
+                  <div class="check-content">
+                    <a href="{{item.url}}">{{item.title}}</a>
+                    <span class="check-code">
+                      <span>Product code:</span>
+                      <span>{{item.sku}}</span>
+                    </span>
+                    <div class="check-qty-pric">
+                      <span class="check-qty">{{item.quantity}} X</span>
+                      <span class="check-price">{{{currency.symbol}}}{{item.sale_price}}</span>
+                    </div>
+                  </div>
+                </li>
+                {{/iterate}}
+              </ul>
+            </div>
+
+            <h2 data-animate="animate__fadeIn">Your order</h2>
+            <ul class="order-history">
+              <li class="order-details" data-animate="animate__fadeIn">
+                <span>Subtotal</span>
+                <span>{{{money cart.subtotal_price}}}</span>
+              </li>
+              <li class="order-details" data-animate="animate__fadeIn">
+                <span>Shipping</span>
+                <span>{{cart.shipping_price}}</span>
+              </li>
+              <li class="order-details" data-animate="animate__fadeIn">
+                <span>Total</span>
+                <span>{{{money cart.total_price}}}</span>
+              </li>
+            </ul>
+
+            <form>
+              <ul class="order-form pro-submit">
+                {{#iterate payment_methods as="method"}}
+                <li class="label-info" data-animate="animate__fadeIn">
+                  <label class="box-area">
+                    <span class="text">{{method.name}}</span>
+                    <input type="radio" name="payment_method" value="{{method.id}}">
+                    <span class="cust-check"></span>
+                  </label>
+                </li>
+                {{/iterate}}
+              </ul>
+            </form>
+
+            <div class="checkout-btn" data-animate="animate__fadeIn">
+              <button type="submit" class="btn-style2 checkout">Place order</button>
+            </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- checkout-area end -->
+<script type="text/javascript" src="{{asset_url}}/js/checkout.js"></script>

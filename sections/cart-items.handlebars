@@ -1,0 +1,101 @@
+  <cart-items>
+  {{#iterate cart.items}}
+  <div class="item-wrap" id="cart-item-{{add current.index 1}}">
+    <ul class="cart-wrap">
+      <!-- cart-info -->
+      <li class="item-info" data-animate="animate__fadeIn">
+        <div class="item-img">
+          <a href="{{current.url}}">
+            <img src="{{current.image}}" class="img-fluid" alt="{{current.title}}" />
+          </a>
+        </div>
+        <div class="item-text">
+          <a href="{{current.url}}">{{current.title}}</a>
+          <span class="item-option">
+            <span class="item-title">Options:</span>
+            <span class="item-type">{{current.selected_options_title}}</span>
+          </span>
+          <span class="item-option">
+          </span>
+          <span class="item-price">
+              <span class="taojaa-Price-currencySymbol">{{{currency.symbol}}}</span>{{current.sale_price}}
+            </span>
+        </div>
+      </li>
+
+      <!-- cart-qty -->
+      <li class="item-qty" data-animate="animate__fadeIn">
+        <div class="product-quantity-action">
+          <div class="product-quantity">
+            <div class="cart-plus-minus">
+              <button class="dec qtybutton minus">
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              <input type="text"
+                     id="cart-item__quantity_{{current.id}}"
+                     name="quantity[]"
+                     class="input-text qty text"
+                     data-line="{{add current.index 1}}"
+                     data-step="{{current.default_or_selected_variant.quantity_rule.step}}"
+                     data-min="{{current.default_or_selected_variant.quantity_rule.min}}"
+                     data-max="{{current.default_or_selected_variant.quantity_rule.max}}"
+                     value="{{current.quantity}}" />
+              <button class="inc qtybutton plus">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="item-remove">
+          <span class="remove-wrap">
+            <a href="/cart/update?line={{add current.index 1}}&quantity=0" class="text-danger">Remove</a>
+          </span>
+        </div>
+      </li>
+
+      <!-- cart-price -->
+      <li class="item-price" data-animate="animate__fadeIn">
+        <span class="amount full-price" id="cart-item__subtotal-{{add current.index 1}}">
+          {{{component "cart-item-subtotal" item=current}}}
+        </span>
+      </li>
+    </ul>
+  </div>
+  {{/iterate}}
+
+  <!-- Coupon & Discount -->
+  <div class="item-wrap">
+    <ul class="cart-wrap">
+      <li class="item-info">
+        <discount-remove class="{{#ifCond cart.discount_applied '!=' true}} d-none {{/ifCond}}">
+          {{#form 'remove-coupon'}}
+          <div class="coupon" style="align-items: center;">
+            <div class="applied-coupon-wrapper" style="margin-right: 15px;">
+              {{{component 'applied-coupon'}}}
+            </div>
+            <button type="submit" class="button" name="remove_coupon" value="Remove coupon">
+              <span class="button_text">Remove coupon</span>
+              {{{component 'loader'}}}
+            </button>
+          </div>
+          {{/form}}
+        </discount-remove>
+
+        <discount-apply class="{{#ifCond cart.discount_applied '==' true}} d-none {{/ifCond}}">
+          {{#form "apply-coupon"}}
+          <div class="error {{#ifCond errors.coupon '===' undefined}} d-none {{/ifCond}}">
+            <p class="error-message">{{errors.coupon}}</p>
+          </div>
+          <div class="coupon">
+            <input type="text" name="coupon" class="input-text" id="coupon" value="" placeholder="Coupon code">
+            <button type="submit" class="button" name="apply_coupon" value="Apply coupon">
+<span class="button_text" style="color: #3b42bf;">Apply coupon</span>
+              {{{component 'loader'}}}
+            </button>
+          </div>
+          {{/form}}
+        </discount-apply>
+      </li>
+    </ul>
+  </div>
+</cart-items>

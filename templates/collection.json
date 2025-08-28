@@ -1,7 +1,7 @@
 {
     "sections": {
-        "catalogs": {
-            "type": "shop/four-columns",
+        "collections": {
+            "type": "shop/collections",
             "available_types": [
                 "shop/four-columns",
                 "shop/three-columns",
@@ -15,7 +15,7 @@
         }
     },
     "order": [
-        "catalogs"
+        "collections"
     ],
     "data": {
         "products": true,

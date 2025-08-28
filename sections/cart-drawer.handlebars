@@ -1,0 +1,76 @@
+<div>
+  <div class="cart-drawer" id="cart-drawer">
+    <form method="post" action="javascript:void(0)" class="drawer-contents">
+
+      <!-- Drawer Header -->
+      <div class="drawer-fixed-header">
+        <div class="drawer-header">
+          <h6 class="drawer-header-title">Cart</h6>
+          <div class="drawer-close">
+            <button type="button" class="drawer-close-btn" aria-label="Close">
+              <span class="drawer-close-icon"><i class="feather-x"></i></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {{#if cart.items_count}}
+
+        <!-- Filled Cart -->
+        <div class="drawer-inner cart-fill">
+          <div class="drawer-scrollable">
+            <ul class="cart-items">
+              {{{render "cart-items-drawer"}}}
+            </ul>
+            <div class="drawer-notes">
+              <label for="cartnote">Order note</label>
+              <textarea name="note" class="cart-notes" id="cartnote"></textarea>
+            </div>
+          </div>
+          <div class="drawer-footer">
+            <div class="drawer-total">
+              <span class="drawer-subtotal">Subtotal</span>
+              <h6 class="drawer-totalprice">
+                <span class="total-cart">
+                  {{{component "cart-total-amount"}}}
+                </span>
+              </h6>
+            </div>
+            <div class="drawer-ship-text">
+              <span>Shipping, taxes, and discount codes calculated at checkout</span>
+            </div>
+            <div class="drawer-cart-checkout">
+              <div class="wt-content">
+                <div class="wt-content-btn">
+                  <div class="wt-btn wt-full-btn">
+                    <a href="/cart" class="btn-style4">View cart</a>
+                  </div>
+                  <div class="wt-btn wt-full-btn">
+                    <a href="/checkout" class="btn-style2">Checkout</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      {{else}}
+
+        <!-- Empty Cart -->
+        <div class="drawer-cart-empty cart-unfill">
+          <div class="drawer-scrollable">
+            <h2>Your cart is currently empty</h2>
+            <a href="/shop" class="btn-style2">Continue shopping</a>
+          </div>
+        </div>
+
+      {{/if}}
+
+    </form>
+  </div>
+</div>
+
+<script type="text/javascript" src="{{asset_url}}/js/cart-drawer.js"></script>
+<script type="text/javascript" src="{{asset_url}}/js/cart.js"></script>
+<script type="text/javascript" src="{{asset_url}}/js/quantity-field.js"></script>
+<script type="text/javascript" src="{{asset_url}}/js/discount.js"></script>

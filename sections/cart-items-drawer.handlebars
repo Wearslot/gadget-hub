@@ -1,0 +1,123 @@
+<cart-items>
+  {{#iterate cart.items}}
+  <li class="cart-item" id="cart-item-{{add current.index 1}}">
+    <div class="cart-item-wrap">
+
+      <!-- Product Image -->
+      <div class="cart-item-image">
+        <a href="{{current.url}}">
+          <img src="{{current.image}}" class="img-fluid" alt="{{current.title}}" />
+        </a>
+      </div>
+
+      <!-- Product Details -->
+      <div class="cart-item-details">
+        <div class="cart-item-info">
+          <!-- Product Name -->
+          <div class="cart-item-name">
+            <a href="{{current.url}}">{{current.title}}</a>
+          </div>
+
+          <!-- Selected Options -->
+          {{#if current.selected_options}}
+            {{#each current.selected_options}}
+            <div class="cart-item-variants">
+              <h6>{{this.name}}:</h6>
+              <span>{{this.value}}</span>
+            </div>
+            {{/each}}
+          {{else}}
+            <div class="cart-item-variants">
+              <h6>Options:</h6>
+              <span>{{current.selected_options_title}}</span>
+            </div>
+          {{/if}}
+        </div>
+
+        <!-- Price -->
+        <div class="cart-item-price">
+          <h6>
+            <span class="taojaa-Price-currencySymbol">{{{currency.symbol}}}</span>{{current.sale_price}}
+          </h6>
+        </div>
+
+        <!-- Quantity & Remove -->
+        <div class="cart-qty-remove">
+          <div class="cart-item-qty">
+            <div class="js-qty-wrapper">
+              <div class="js-qty-wrap">
+                <button type="button"
+                        class="js-qty-adjust js-qty-adjust-minus"
+                        aria-label="Remove item"
+                        data-line="{{add current.index 1}}">
+                  <span><i class="feather-minus"></i></span>
+                </button>
+                <input type="number"
+                       name="quantity[]"
+                       class="js-qty-num"
+                       id="cart-item__quantity_{{current.id}}"
+                       data-line="{{add current.index 1}}"
+                       value="{{current.quantity}}"
+                       min="{{current.default_or_selected_variant.quantity_rule.min}}"
+                       max="{{current.default_or_selected_variant.quantity_rule.max}}"
+                       step="{{current.default_or_selected_variant.quantity_rule.step}}" />
+                <button type="button"
+                        class="js-qty-adjust js-qty-adjust-plus"
+                        aria-label="Add item"
+                        data-line="{{add current.index 1}}">
+                  <span><i class="feather-plus"></i></span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cart-item-remove">
+            <a href="/cart/update?line={{add current.index 1}}&quantity=0"
+               class="cart-remove text-danger"
+               aria-label="Remove item">
+              <i class="feather-trash-2"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </li>
+  {{/iterate}}
+
+  <!-- Coupon & Discount -->
+  <li class="cart-item">
+    <div class="cart-item-wrap">
+      <div class="cart-item-details">
+
+        <discount-remove class="{{#ifCond cart.discount_applied '!=' true}} d-none {{/ifCond}}">
+          {{#form 'remove-coupon'}}
+          <div class="coupon" style="align-items: center;">
+            <div class="applied-coupon-wrapper" style="margin-right: 15px;">
+              {{!-- {{{component 'applied-coupon'}}} --}}
+            </div>
+            <button type="submit" class="button" name="remove_coupon" value="Remove coupon">
+              <span class="button_text">Remove coupon</span>
+            </button>
+          </div>
+          {{/form}}
+        </discount-remove>
+
+        <discount-apply class="{{#ifCond cart.discount_applied '==' true}} d-none {{/ifCond}}">
+          {{#form "apply-coupon"}}
+          <div class="error {{#ifCond errors.coupon '===' undefined}} d-none {{/ifCond}}">
+            <p class="error-message">{{errors.coupon}}</p>
+          </div>
+          <div class="coupon">
+            <input type="text" name="coupon" class="input-text" id="coupon" placeholder="Coupon code">
+            <button type="submit" class="button" name="apply_coupon" value="Apply coupon">
+              <span class="button_text" style="color: #3b42bf;">Apply coupon</span>
+            </button>
+          </div>
+          {{/form}}
+        </discount-apply>
+
+      </div>
+    </div>
+  </li>
+</cart-items>

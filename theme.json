@@ -1,5 +1,6 @@
 {
   "name": "gadget-hub",
   "store": "gadgethub",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "id": 172
 }

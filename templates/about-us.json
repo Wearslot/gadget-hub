@@ -1,12 +1,12 @@
 {
     "layout": "main",
     "sections": {
-        "main-cart": {
-            "type": "cart-page",
+        "about-us": {
+            "type": "about-us",
             "settings": {}
         }
     },
     "order": [
-        "main-cart"
+        "about-us"
     ]
 }

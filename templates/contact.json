@@ -1,8 +1,8 @@
 {
     "layout": "main",
     "sections": {
-        "contact-header": {
-            "type": "contact-header",
+        "contact-us": {
+            "type": "contact-us-2",
             "settings": {
                 "background": {
                     "type": "image",
@@ -37,8 +37,8 @@
         }
     },
     "order": [
-        "contact-header",
-        "contact-details"
+        "contact-us"
+        
     ],
     "data": {
         "collections": true

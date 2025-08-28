@@ -1,8 +1,8 @@
 {
-    "layout": "",
-    "sections": {},
-    "order": [],
-    "data": {
-        "collections": true
-    }
+    "layout": "main",
+    "sections": {
+        "type": "blog-posts"
+
+    },
+    "order": ["blog-posts"]
 }

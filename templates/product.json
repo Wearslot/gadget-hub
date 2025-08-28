@@ -1,23 +1,29 @@
 {
-    "layout": "main",
-    "sections": {
-        "details": {
-            "type": "product/main-details",
-            "settings": {}
-        },
-        "similar_products": {
-            "type": "product/similar-products",
-            "settings": {
-                "title": "Related Products",
-                "description": ""
-            }
-        }
+  "layout": "main",
+  "sections": {
+    "product-details": {
+      "type": "product/product-details"
     },
-    "order": [
-        "details",
-        "similar_products"
-    ],
-    "data": {
-        "collections": true
+    "recent-products":{
+        "type" : "product/recent-products"
+    },
+    "product-reviews":{
+        "type": "product/product-reviews"
+    },
+    "details": {
+      "type": "product/main-details",
+      "settings": {}
+    },
+    "similar_products": {
+      "type": "product/similar-products",
+      "settings": {
+        "title": "Related Products",
+        "description": ""
+      }
     }
+  },
+  "order": ["product-details", "product-reviews", "recent-products"],
+  "data": {
+    "collections": true
+  }
 }
