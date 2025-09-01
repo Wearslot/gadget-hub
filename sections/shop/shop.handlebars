@@ -157,12 +157,7 @@
                                     class="cat-checkbox"
                                     data-animate="animate__fadeIn"
                                   >
-                                    <a
-                                      href="https://gadgethub.taojaa.shop/shop?collection={{encodeURIComponent
-                                        current.name
-                                      }}"
-                                      class="cat-link"
-                                    >
+                                    <a id="categoryLink" class="cat-link" data-name="{{current.name}}">
 
                                       <span
                                         class="check-name"
@@ -440,4 +435,14 @@
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const link = document.getElementById('categoryLink');
+    const collectionName = link.dataset.name;  // get from data attribute
+    const encodedName = encodeURIComponent(collectionName);
+
+    link.href = `https://gadgethub.taojaa.shop/shop?collection=${encodedName}`;
+  });
+</script>
 <!-- collection end -->
