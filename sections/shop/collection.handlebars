@@ -1,21 +1,23 @@
 <section class="main-content-wrap bg-color shop-page section-ptb">
   <div class="container">
+    <!-- Single Collection Header -->
     <div class="collection-header">
-      <h6 class="st-title" data-animate="animate__fadeIn">Collections</h6>
+      <h6 class="st-title" data-animate="animate__fadeIn">{{collection.name}}</h6>
       <div class="collection-info" data-animate="animate__fadeIn">
         <div class="collection-image">
           <img
-            src="image/home1/collection/collection-banner.jpg"
+            src="{{collection.banner_image}}"
             class="img-fluid"
-            alt="Collection Banner"
+            alt="{{collection.name}} Banner"
           />
         </div>
       </div>
     </div>
 
+    <!-- Products Inside Collection -->
     <div class="collection-category product-grid">
       <ul class="product-view-ul row">
-        {{#iterate collections}}
+        {{#iterate collection.products}}
         <li class="col-md-4 pro-item-li" data-animate="animate__fadeIn">
           <div class="single-product-wrap">
             <div class="product-image">

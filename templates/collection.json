@@ -1,21 +1,14 @@
 {
     "sections": {
-        "collections": {
-            "type": "shop/collections",
+        "collection": {
+            "type": "shop/collection",
             "available_types": [
-                "shop/four-columns",
-                "shop/three-columns",
-                "shop/two-columns",
-                "shop/left-side",
-                "shop/right-side",
-                "shop/alternating-list",
-                "shop/gallery"
             ],
             "settings": {}
         }
     },
     "order": [
-        "collections"
+        "collection"
     ],
     "data": {
         "products": true,

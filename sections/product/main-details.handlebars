@@ -87,26 +87,23 @@
           {{#variations product}}
           <tr>
             <th class="label">
-              <label for="{{type.name}}">{{type.name}}</label>
+              <label>{{type.name}}</label>
             </th>
             <td class="value">
               <variant-field>
-                <select
-                  id="{{type.name}}"
-                  variant="{{type.name}}"
-                  name="{{type.name}}"
-                  data-show_option_none="yes"
-                >
-                  <option value>Choose an option</option>
+                <fieldset variant="{{type.name}}">
                   {{#variantOptions this}}
-                  <option
-                    value="{{name}}"
-                    {{#includes product.default_or_selected_options name}}selected="true"{{/includes}}
-                  >
+                  <label for="{{type.name}}-{{id}}" 
+                         class="{{#includes product.default_or_selected_options name}} active {{/includes}}">
                     {{name}}
-                  </option>
+                    <input type="radio"
+                           name="{{type.name}}"
+                           value="{{name}}"
+                           id="{{type.name}}-{{id}}"
+                           {{#includes product.default_or_selected_options name}} checked="true" {{/includes}}>
+                  </label>
                   {{/variantOptions}}
-                </select>
+                </fieldset>
               </variant-field>
             </td>
           </tr>
