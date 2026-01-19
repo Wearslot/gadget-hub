@@ -1,0 +1,12 @@
+{
+    "layout": "main",
+    "sections": {
+        "terms-and-conditions": {
+            "type": "terms-and-conditions",
+            "settings": {}
+        }
+    },
+    "order": [
+        "terms-and-conditions"
+    ]
+}

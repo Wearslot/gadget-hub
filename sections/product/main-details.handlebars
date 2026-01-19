@@ -77,70 +77,108 @@
                     </span>
                     {{/ifCond}}
                 </div>
-                <product-form>
-                    {{#form 'product' 'class="variations_form cart"' product=product}}
-                    <table class="variations" cellspacing="0" role="presentation">
-                        <tbody>
-                            {{#variations product}}
-                            <tr>
-                                <th class="label"><label for="{{type.name}}">{{type.name}}</label></th>
-                                <td class="value">
-                                    <variant-field>
-                                        <select id="{{type.name}}" variant="{{type.name}}" name="{{type.name}}"
-                                            data-show_option_none="yes">
-                                            <option value>Choose an option</option>
-                                            {{#variantOptions this}}
-                                            <option value="{{name}}" {{#includes product.default_or_selected_options
-                                                name}} selected="true" {{/includes}}>
-                                                {{name}}
-                                            </option>
-                                            {{/variantOptions}}
-                                        </select>
-                                    </variant-field>
-                                </td>
-                            </tr>
-                            {{/variations}}
-                        </tbody>
-                    </table>
-                    <div class="error d-none">
-                        <p class="error-message"></p>
-                    </div>
-                    <div class="single_variation_wrap">
-                        <div class="taojaa-variation-add-to-cart variations_button">
-                            <quantity-field>
-                                <div class="qodef-quantity-buttons quantity">
-                                    <label class="screen-reader-text" for="quantity_6613cfb50d401">
-                                        {{product.name}} quantity
-                                    </label>
-                                    <span class="qodef-quantity-minus minus"></span>
-                                    <input type="text" id="product__quantity_{{item.id}}" product-data="quantity"
-                                        class="input-text qty text qodef-quantity-input" data-step="1" data-min="1"
-                                        data-max="{{product.default_or_selected_variant.quantity}}" name="quantity"
-                                        value="1" title="Qty" inputmode="numeric" />
-                                    <span class="qodef-quantity-plus plus"></span>
-                                </div>
-                            </quantity-field>
-                            {{#ifCond product.default_or_selected_variant.in_stock '!=' true}}
-                            <button type="submit" class="single_add_to_cart_button button alt disabled" disabled="true">
-                                {{else}}
-                                <button type="submit" class="single_add_to_cart_button button alt">
-                                    {{/ifCond}}
 
-                                    <span class="button_text">
-                                        {{#ifCond product.default_or_selected_variant.in_stock '!=' true}}
-                                        Out of Stock
-                                        {{else}}
-                                        Add to cart
-                                        {{/ifCond}}
-                                    </span>
-                                    {{{component "loader"}}}
-                                </button>
-                                <input type="hidden" name="variant_id" class="variant_id" product-data="variant_id"
-                                    value="{{product.default_or_selected_variant_id}}" />
-                        </div>
-                    </div>
-                    {{/form}}
-                </product-form>
+       {{!-- Product Form Start --}}
+<product-form>
+  {{#form 'product' product=product}}
+    <div class="variations_form cart">
+      <table class="variations" cellspacing="0" role="presentation">
+        <tbody>
+          {{#variations product}}
+          <tr>
+            <th class="label">
+              <label>{{type.name}}</label>
+            </th>
+            <td class="value">
+              <variant-field>
+                <fieldset variant="{{type.name}}">
+                  {{#variantOptions this}}
+                  <label for="{{type.name}}-{{id}}" 
+                         class="{{#includes product.default_or_selected_options name}} active {{/includes}}">
+                    {{name}}
+                    <input type="radio"
+                           name="{{type.name}}"
+                           value="{{name}}"
+                           id="{{type.name}}-{{id}}"
+                           {{#includes product.default_or_selected_options name}} checked="true" {{/includes}}>
+                  </label>
+                  {{/variantOptions}}
+                </fieldset>
+              </variant-field>
+            </td>
+          </tr>
+          {{/variations}}
+        </tbody>
+      </table>
+
+      <div class="product__details__cart__option">
+        <quantity-field>
+          <div class="qodef-quantity-buttons quantity">
+            <label class="screen-reader-text" for="quantity_{{product.id}}">
+              {{product.name}} quantity
+            </label>
+            <span class="qodef-quantity-minus minus"></span>
+            <input
+              type="text"
+              id="product__quantity_{{product.id}}"
+              product-data="quantity"
+              class="input-text qty text qodef-quantity-input"
+              data-step="1"
+              data-min="1"
+              {{#if product.default_or_selected_variant}}
+                data-max="{{product.default_or_selected_variant.quantity}}"
+              {{else}}
+                data-max="{{product.quantity}}"
+              {{/if}}
+              name="quantity"
+              value="1"
+              title="Qty"
+              inputmode="numeric"
+            />
+            <span class="qodef-quantity-plus plus"></span>
+          </div>
+        </quantity-field>
+
+        {{#if product.default_or_selected_variant.quantity}}
+          <!-- Active Add to Cart Button -->
+          <button type="submit" class="single_add_to_cart_button button alt">
+            <span class="button_text">Add to cart</span>
+            {{{component "loader"}}}
+          </button>
+        {{else}}
+          <!-- Disabled Button (Out of Stock) -->
+          <button type="submit" class="single_add_to_cart_button button alt disabled" disabled>
+            <span class="button_text">Out of Stock</span>
+            {{{component "loader"}}}
+          </button>
+        {{/if}}
+
+        <!-- Hidden Variant ID Field -->
+        <input
+          type="hidden"
+          name="variant_id"
+          class="variant_id"
+          product-data="variant_id"
+          value="{{product.default_or_selected_variant_id}}"
+        />
+      </div>
+
+      <div class="success">
+        <p class="success-message text-success"></p>
+      </div>
+
+      <div class="error">
+        <p class="error-message text-danger"></p>
+      </div>
+    </div>
+  {{/form}}
+</product-form>
+
+
+                {{!-- Product Form End --}}
+
+
+
 
                 <div class="yith-wcwl-add-to-wishlist add-to-wishlist-510 exists wishlist-fragment on-first-load"
                     style="display: none;">

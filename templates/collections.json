@@ -1,8 +1,24 @@
 {
-    "layout": "main",
-    "sections": {},
-    "order": [],
+    "sections": {
+        "collections": {
+            "type": "shop/collections",
+            "available_types": [
+                "shop/four-columns",
+                "shop/three-columns",
+                "shop/two-columns",
+                "shop/left-side",
+                "shop/right-side",
+                "shop/alternating-list",
+                "shop/gallery"
+            ],
+            "settings": {}
+        }
+    },
+    "order": [
+        "collections"
+    ],
     "data": {
+        "products": true,
         "collections": true
     }
 }

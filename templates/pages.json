@@ -3,8 +3,12 @@
     "sections": {
         "main-page": {
             "type": "page"
+        },
+        "about-page":{
+            "type": "about-us"
         }
     },
+    
     "order": [
         "main-page"
     ],

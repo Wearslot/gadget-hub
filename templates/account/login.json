@@ -2,7 +2,7 @@
     "layout": "main",
     "sections": {
         "main-page": {
-            "type": "login"
+            "type": "login-account"
         }
     },
     "order": [

@@ -3,142 +3,15 @@
     <div class="offer-text-wrap">
         <div class="offer-text">
             <ul>
-                <li class="text1">
+                {{#widget name="offer_text"}}
+                <li class="{{ widget.settings.text_class }}">
+                    {{#each widget.settings.offers}}
                     <div class="offer-text-block">
-                        <p>Summer sale discount 40% off all products</p>
+                        <p>{{ this }}</p>
                     </div>
-                    <div class="offer-text-block">
-                        <p>Explore the latest shopping related offers</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Newest products 10% off use code: NEW10</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Summer sale discount 40% off all products</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Explore the latest shopping related offers</p>
-                    </div>
+                    {{/each}}
                 </li>
-                <li class="text2">
-                    <div class="offer-text-block">
-                        <p>Summer sale discount 40% off all products</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Explore the latest shopping related offers</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Newest products 10% off use code: NEW10</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Summer sale discount 40% off all products</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Explore the latest shopping related offers</p>
-                    </div>
-                </li>
-                <li class="text1">
-                    <div class="offer-text-block">
-                        <p>Summer sale discount 40% off all products</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Explore the latest shopping related offers</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Newest products 10% off use code: NEW10</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Summer sale discount 40% off all products</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Explore the latest shopping related offers</p>
-                    </div>
-                </li>
-                <li class="text2">
-                    <div class="offer-text-block">
-                        <p>Summer sale discount 40% off all products</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Explore the latest shopping related offers</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Newest products 10% off use code: NEW10</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Summer sale discount 40% off all products</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Explore the latest shopping related offers</p>
-                    </div>
-                </li>
-                <li class="text1">
-                    <div class="offer-text-block">
-                        <p>Summer sale discount 40% off all products</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Explore the latest shopping related offers</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Newest products 10% off use code: NEW10</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Summer sale discount 40% off all products</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Explore the latest shopping related offers</p>
-                    </div>
-                </li>
-                <li class="text2">
-                    <div class="offer-text-block">
-                        <p>Summer sale discount 40% off all products</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Explore the latest shopping related offers</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Newest products 10% off use code: NEW10</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Summer sale discount 40% off all products</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Explore the latest shopping related offers</p>
-                    </div>
-                </li>
-                <li class="text1">
-                    <div class="offer-text-block">
-                        <p>Summer sale discount 40% off all products</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Explore the latest shopping related offers</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Newest products 10% off use code: NEW10</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Summer sale discount 40% off all products</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Explore the latest shopping related offers</p>
-                    </div>
-                </li>
-                <li class="text2">
-                    <div class="offer-text-block">
-                        <p>Summer sale discount 40% off all products</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Explore the latest shopping related offers</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Newest products 10% off use code: NEW10</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Summer sale discount 40% off all products</p>
-                    </div>
-                    <div class="offer-text-block">
-                        <p>Explore the latest shopping related offers</p>
-                    </div>
-                </li>
+                {{/widget}}
             </ul>
         </div>
     </div>

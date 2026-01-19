@@ -1,0 +1,172 @@
+<section class="main-content-wrap bg-color shop-page section-ptb">
+  <div class="container">
+    <div class="collection-header">
+      <h6 class="st-title" data-animate="animate__fadeIn">Collections</h6>
+      <div class="collection-info" data-animate="animate__fadeIn">
+        <div class="collection-image">
+          <img
+            src="image/home1/collection/collection-banner.jpg"
+            class="img-fluid"
+            alt="Collection Banner"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="collection-category product-grid">
+      <ul class="product-view-ul row">
+        {{#iterate collections}}
+        <li class="col-md-4 pro-item-li" data-animate="animate__fadeIn">
+          <div class="single-product-wrap">
+            <div class="product-image">
+              <a href="/product/{{current.slug}}" class="pro-img">
+                <img
+                  src="{{current.image.main}}"
+                  class="img-fluid img1"
+                  alt="{{current.name}}"
+                />
+                {{#if current.image.secondary}}
+                <img
+                  src="{{current.image.secondary}}"
+                  class="img-fluid img2"
+                  alt="{{current.name}}"
+                />
+                {{/if}}
+              </a>
+
+              {{#ifCond current.discount ">" 0}}
+              <div class="product-label pro-new-sale">
+                <span class="product-label-title">{{current.discount}}%</span>
+              </div>
+              {{/ifCond}}
+
+              <div class="product-action">
+                <a href="wishlist-product.html" class="add-to-wishlist" aria-label="Add to Wishlist">
+                  <i class="feather-heart"></i>
+                  <span class="tooltip-text">Wishlist</span>
+                </a>
+                <a
+                  href="#quickview-modal"
+                  data-bs-toggle="modal"
+                  class="quick-view"
+                  data-slug="{{current.slug}}"
+                  aria-label="Quick View"
+                >
+                  <i class="feather-eye"></i>
+                  <span class="tooltip-text">Quickview</span>
+                </a>
+              </div>
+
+              <div class="product-cart">
+                <button
+                  type="button"
+                  class="add-to-cart"
+                  data-product-id="{{current.id}}"
+                  aria-label="Add to Cart"
+                >
+                  <span class="product-icon">
+                    <i class="feather-shopping-bag"></i>
+                    <i class="feather-loader"></i>
+                    <i class="feather-check"></i>
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            <div class="product-caption">
+              <div class="product-title">
+                <h6>
+                  <a href="/product/{{current.slug}}">{{current.name}}</a>
+                </h6>
+              </div>
+
+              <div class="price-box">
+                <span class="new-price">{{{product_price current}}}</span>
+                {{#ifCond current.discount ">" 0}}
+                <span class="old-price">{{current.old_price}}</span>
+                {{/ifCond}}
+              </div>
+
+              <div class="product-ratting">
+                <span class="review-ratting">
+                  <span class="review-star">
+                    {{#if current.reviews}}
+                      {{#times 5}}<i class="feather-star"></i>{{/times}}
+                    {{else}}
+                      <i class="feather-star"></i>
+                      <i class="feather-star"></i>
+                      <i class="feather-star"></i>
+                      <i class="feather-star"></i>
+                      <i class="feather-star"></i>
+                    {{/if}}
+                  </span>
+                  <span class="review-caption">
+                    {{#if current.reviews}}
+                      {{current.reviews}} reviews
+                    {{else}}
+                      No reviews
+                    {{/if}}
+                  </span>
+                </span>
+              </div>
+
+              {{#if current.description}}
+              <div class="product-description">
+                <p>{{current.description}}</p>
+              </div>
+              {{/if}}
+
+              <div class="product-action secondary-actions">
+                <a
+                  href="javascript:void(0)"
+                  class="add-to-cart"
+                  data-product-id="{{current.id}}"
+                  aria-label="Add to Cart"
+                >
+                  <i class="feather-shopping-bag"></i>
+                  <span class="tooltip-text">Add to cart</span>
+                </a>
+                <a
+                  href="#quickview-modal"
+                  data-bs-toggle="modal"
+                  class="quick-view"
+                  data-slug="{{current.slug}}"
+                  aria-label="Quick View"
+                >
+                  <i class="feather-eye"></i>
+                  <span class="tooltip-text">Quickview</span>
+                </a>
+                <a
+                  href="wishlist-product.html"
+                  class="add-to-wishlist"
+                  aria-label="Add to Wishlist"
+                >
+                  <i class="feather-heart"></i>
+                  <span class="tooltip-text">Wishlist</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+        {{/iterate}}
+      </ul>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination-area" data-animate="animate__fadeIn">
+      <ul class="pagination-page-box">
+        <li class="number active">
+          <a href="javascript:void(0)" class="theme-glink">1</a>
+        </li>
+        <li class="number">
+          <a href="javascript:void(0)" class="gradient-text">2</a>
+        </li>
+        <li class="page-next">
+          <a href="javascript:void(0)" class="theme-glink">
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,12 @@
+{
+    "layout": "main",
+    "sections": {
+        "refund-policy": {
+            "type": "refund-policy",
+            "settings": {}
+        }
+    },
+    "order": [
+        "refund-policy"
+    ]
+}
